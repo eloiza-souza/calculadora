@@ -7,7 +7,6 @@ public class Main {
     boolean running = true;
         System.out.println("* * * C A L C U L A D O R A * * *");
         while (running) {
-
             System.out.println("""
                     Digite o número da operação desejada:
                     1 - soma
@@ -26,6 +25,14 @@ public class Main {
                 System.out.println("Calculadora encerrada.");
             }
         }
+        System.out.print("Primeiro número: ");
+        double firstNumber = scanner.nextDouble();
+
+        System.out.println("Segundo número: ");
+        double secondNumber = scanner.nextDouble();
+
+        
+
         scanner.close();
     }
 }
