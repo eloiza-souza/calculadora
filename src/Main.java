@@ -1,11 +1,12 @@
-import javax.swing.plaf.synth.SynthOptionPaneUI;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
-
+        final int END = 9;
+        double firstNumber = 0,
+                secondNumber = 0;
         System.out.println("* * * C A L C U L A D O R A * * *");
 
         while (running) {
@@ -19,25 +20,28 @@ public class Main {
                     5 - elevar a um expoente
                     6 - raiz n-ésima
                     7 - percentual
-                    8 - sair""");
+                    8 - log base 10
+                    9 - sair""");
 
             System.out.print("Opção: ");
             int choice = scanner.nextInt();
-            if(choice < 1 || choice > 8){
+            if(choice < 1 || choice > END){
                 System.out.println("Opção inválida, tente novamente.");
                 continue;
             }
-            if (choice == 8) {
+            if (choice == END) {
                 running = false;
                 System.out.println("\nCalculadora encerrada.");
                 continue;
             }
 
             System.out.print("\nPrimeiro número: ");
-            double firstNumber = scanner.nextDouble();
+            firstNumber = scanner.nextDouble();
 
-            System.out.print("\nSegundo número: ");
-            double secondNumber = scanner.nextDouble();
+            if (choice <= 7) {
+                System.out.print("\nSegundo número: ");
+                secondNumber = scanner.nextDouble();
+            }
 
             switch (choice) {
                 case 1:
@@ -65,10 +69,12 @@ public class Main {
                 case 7:
                     System.out.println("\nResultado = " + (firstNumber * secondNumber / 100));
                     break;
+                case 8:
+                    System.out.println("\nResultado = " + Math.log10(firstNumber));
+                    break;
                 default:
                     System.out.println("Opção inválida, tente novamente.");
             }
-
         }
         scanner.close();
     }
