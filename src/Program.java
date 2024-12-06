@@ -10,20 +10,7 @@ public class Program {
         System.out.println("* * * C A L C U L A D O R A * * *");
 
         while (running) {
-            System.out.println("""
-                    
-                    Digite o número da opção desejada:
-                    1 - somar
-                    2 - subtrair
-                    3 - multiplicar
-                    4 - dividir
-                    5 - elevar a um expoente
-                    6 - raiz n-ésima
-                    7 - percentual
-                    8 - log base 10
-                    9 - sair""");
-
-            System.out.print("Opção: ");
+            showMenu();
             int choice = scanner.nextInt();
             if(choice < 1 || choice > END){
                 System.out.println("Opção inválida, tente novamente.");
@@ -73,5 +60,22 @@ public class Program {
             }
         }
         scanner.close();
+    }
+
+    public static void showMenu(){
+        System.out.println("""
+                    
+                    Digite o número da opção desejada:
+                    1 - somar
+                    2 - subtrair
+                    3 - multiplicar
+                    4 - dividir
+                    5 - elevar a um expoente
+                    6 - raiz n-ésima
+                    7 - percentual
+                    8 - log base 10
+                    9 - sair""");
+
+        System.out.print("Opção: ");
     }
 }
