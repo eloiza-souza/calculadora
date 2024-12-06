@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class Program {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
@@ -45,32 +45,28 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    System.out.println("\nResultado = " + (firstNumber + secondNumber));
+                    System.out.println("\nResultado = " + Calculator.sum(firstNumber, secondNumber));
                     break;
                 case 2:
-                    System.out.println("\nResultado = " + (firstNumber - secondNumber));
+                    System.out.println("\nResultado = " + Calculator.subtract(firstNumber, secondNumber));
                     break;
                 case 3:
-                    System.out.println("\nResultado = " + (firstNumber * secondNumber));
+                    System.out.println("\nResultado = " + Calculator.multiply(firstNumber, secondNumber));
                     break;
                 case 4:
-                    if (secondNumber == 0) {
-                        System.out.println("Não é permitido divisão por zero. Tente novamente");
-                    } else {
-                        System.out.println("\nResultado = " + (firstNumber / secondNumber));
-                    }
+                    System.out.println("\nResultado = " + Calculator.divide(firstNumber, secondNumber));
                     break;
                 case 5:
-                    System.out.println("\nResultado = " + Math.pow(firstNumber, secondNumber));
+                    System.out.println("\nResultado = " + Calculator.pow(firstNumber, secondNumber));
                     break;
                 case 6:
-                    System.out.println("\nResultado = " + Math.pow(firstNumber, 1/secondNumber));
+                    System.out.println("\nResultado = " + Calculator.root(firstNumber, secondNumber));
                     break;
                 case 7:
-                    System.out.println("\nResultado = " + (firstNumber * secondNumber / 100));
+                    System.out.println("\nResultado = " + Calculator.percentual(firstNumber, secondNumber));
                     break;
                 case 8:
-                    System.out.println("\nResultado = " + Math.log10(firstNumber));
+                    System.out.println("\nResultado = " + Calculator.log10(firstNumber));
                     break;
                 default:
                     System.out.println("Opção inválida, tente novamente.");
