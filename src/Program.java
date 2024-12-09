@@ -1,11 +1,14 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Program {
+    final static int END = OperationType.values().length+1;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
-        final int END = 9;
-        double firstNumber = 0,
+
+        double firstNumber,
                 secondNumber = 0;
         System.out.println("* * * C A L C U L A D O R A * * *");
 
@@ -26,55 +29,54 @@ public class Program {
             firstNumber = scanner.nextDouble();
 
             if (choice <= 7) {
-                System.out.print("\nSegundo número: ");
+                System.out.print("Segundo número: ");
                 secondNumber = scanner.nextDouble();
             }
 
-            switch (choice) {
-                case 1:
-                    System.out.println("\nResultado = " + Calculator.sum(firstNumber, secondNumber));
+            System.out.print("\nResultado = ");
+
+            OperationType selectedOperation = OperationType.values()[choice - 1];
+
+            switch (selectedOperation) {
+                case SUM:
+                    System.out.println(Calculator.sum(firstNumber, secondNumber));
                     break;
-                case 2:
-                    System.out.println("\nResultado = " + Calculator.subtract(firstNumber, secondNumber));
+                case SUBTRACT:
+                    System.out.println(Calculator.subtract(firstNumber, secondNumber));
                     break;
-                case 3:
-                    System.out.println("\nResultado = " + Calculator.multiply(firstNumber, secondNumber));
+                case MULTIPLY:
+                    System.out.println(Calculator.multiply(firstNumber, secondNumber));
                     break;
-                case 4:
-                    System.out.println("\nResultado = " + Calculator.divide(firstNumber, secondNumber));
+                case DIVIDE:
+                    System.out.println(Calculator.divide(firstNumber, secondNumber));
                     break;
-                case 5:
-                    System.out.println("\nResultado = " + Calculator.pow(firstNumber, secondNumber));
+                case POW:
+                    System.out.println(Calculator.pow(firstNumber, secondNumber));
                     break;
-                case 6:
-                    System.out.println("\nResultado = " + Calculator.root(firstNumber, secondNumber));
+                case ROOT:
+                    System.out.println(Calculator.root(firstNumber, secondNumber));
                     break;
-                case 7:
-                    System.out.println("\nResultado = " + Calculator.percentual(firstNumber, secondNumber));
+                case PERCENTUAL:
+                    System.out.println(Calculator.percentual(firstNumber, secondNumber));
                     break;
-                case 8:
-                    System.out.println("\nResultado = " + Calculator.log10(firstNumber));
+                case LOG10:
+                    System.out.println(Calculator.log10(firstNumber));
                     break;
                 default:
                     System.out.println("Opção inválida, tente novamente.");
             }
         }
+        System.out.println(" ");
         scanner.close();
     }
 
     public static void showMenu(){
-        System.out.println("""
-                    
-                    Digite o número da opção desejada:
-                    1 - somar
-                    2 - subtrair
-                    3 - multiplicar
-                    4 - dividir
-                    5 - elevar a um expoente
-                    6 - raiz n-ésima
-                    7 - percentual
-                    8 - log base 10
-                    9 - sair""");
+        System.out.println("\nDigite o número da opção desejada:");
+                for (OperationType type: OperationType.values()){
+                    System.out.println(type.ordinal()+ 1 + " - " + type.getDescription());
+
+                }
+        System.out.println(END + " - " + "Sair");
 
         System.out.print("Opção: ");
     }
