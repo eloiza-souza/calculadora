@@ -1,10 +1,12 @@
-import java.sql.SQLOutput;
+package com.eloiza.calculadora;
+
+
 import java.util.Scanner;
 
 public class Program {
     final static int END = OperationType.values().length+1;
 
-    public static void main(String[] args) {
+    public static void programExecution() {
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
 

@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CalculadoraApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(CalculadoraApplication.class, args);
+		Program.programExecution();
 	}
 
 }

@@ -1,3 +1,5 @@
+package com.eloiza.calculadora;
+
 public class Calculator {
 
     public static double sum(double firstNumber, double secondNumber) {

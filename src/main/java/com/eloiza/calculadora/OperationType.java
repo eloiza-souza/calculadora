@@ -1,3 +1,6 @@
+package com.eloiza.calculadora;
+
+
 public enum OperationType {
     SUM ("Somar"),
     SUBTRACT ("Subtrair"),
